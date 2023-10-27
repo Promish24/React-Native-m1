@@ -1,12 +1,26 @@
-import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
+import Login  from './compontent/Login';
+import Listofpatient from "./compontent/Listofpatient"
+import Addpatient from './compontent/Addpatient';
+import Patientrecord from './compontent/Patientrecord';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+import AddPatientrecord from'./compontent/AddPatientrecord';
+const Stack = createStackNavigator();
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <NavigationContainer>
+      <Stack.Navigator initialRouteName="Login">
+        <Stack.Screen name="Login" component={Login} />
+        <Stack.Screen name="Listofpatient" component={Listofpatient} />
+        <Stack.Screen name="Addpatient" component={Addpatient} />
+        <Stack.Screen name="Patientrecord" component={Patientrecord} />
+        <Stack.Screen name="AddPatientrecord" component={AddPatientrecord} />
+        {/* Add more screens as needed */}
+      </Stack.Navigator>
+    </NavigationContainer>
+
   );
 }
 
